@@ -69,7 +69,9 @@ sys		0m9.271s
 
 
 
+## Structure
 
+<img src="https://github.com/CIRCL/factual-rules/blob/main/img/YaraRule.png?raw=true" alt="alt text" style="zoom:80%;" />
 
 
 
