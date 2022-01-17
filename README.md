@@ -1,24 +1,26 @@
 # factual-rules
 
-Factual rules are [YARA](https://yara.readthedocs.io/en/stable/) rules to find legitimate software on raw disk acquisition. The goal of the software is to be able to use a set of rules against collected or acquired digital forensic evidences and find installed software in a timely fashion. All the rules are generated using [factual-rules-generator](https://github.com/CIRCL/factual-rules-generator).
+Factual rules are [YARA](https://yara.readthedocs.io/en/stable/) rules to find legitimate software on raw disk acquisition.
+The goal of the software is to be able to use a set of rules against collected or acquired digital forensic evidences and find installed software in a timely fashion.
+All the rules are generated using [factual-rules-generator](https://github.com/CIRCL/factual-rules-generator).
 
 ## Source and origin of rules 
 
-YARA rules present in this repository were generated using this code ([factual-rules-generator](https://github.com/CIRCL/factual-rules-generator)). Additional
-rules can be automatically created with `factural-rules-generator` and contributed it back to this repository.
+YARA rules present in this repository were generated using scripts hosted in the [factual-rules-generator repository](https://github.com/CIRCL/factual-rules-generator).
+Additional, rules can be automatically created with `factural-rules-generator` and contributed it back to this repository.
 
 ## Rules directory format
 
-YARA rules are in [rules](./rules/) directory and each folder follow the same pattern per software name:
+YARA rules are in the [`/rules`](./rules/) directory and each folder follows the same pattern per software name:
 
-- In the top folder level:
+- At the top level:
 
   - Installer name (such as `chocolatey`, `msiexec`, `exe`)
   - Following the execution of the installer 
     - two files, md5 and sha1 containing the hashes for each files created during the installation;
     - a folder with each hash in [Hashlookup](https://github.com/hashlookup/hashlookup-forensic-analyser) file format.
 
-- At second level, the installer folder:
+- At the second level, the installer folder:
 
   - Two rules extract from raw disk:
     - rule for installation part
@@ -30,14 +32,15 @@ YARA rules are in [rules](./rules/) directory and each folder follow the same pa
 
 ## Usage
 
-Expect the executables rules, each rules has an external parameter called `ext_var`which needs to be specified. This parameter represents the limit of strings to match with the entry file:  if a YARA rule contains 100 strings, if ext_val is set to 50, then, the entry file will match only the 50 strings with the YARA rule against the evidence. 
+Expect the executables rules, each rules has an external parameter called `ext_var`which needs to be specified.
+This parameter represents the limit of strings to match with the entry file:  if a YARA rule contains 100 strings, if `ext_val` is set to 50, then, the entry file will match only the 50 strings with the YARA rule against the evidence. 
 
 ~~~bash
 dacru@dacru:~/factual-rules$ yara -d ext_var=50 WinRAR_install.yar rawdisk_acquire.img
 WinRAR_install rawdisk_acquire.img 
 ~~~
 
-This result tells you that WinRAR was installed following the strings matches on the raw disk using the WinRAR_install rule.
+This result tells you that WinRAR was installed following the strings matches on the raw disk using the `WinRAR_install` rule.
 
 ## Benchmarking and testing factual rules search on acquired disk
 
