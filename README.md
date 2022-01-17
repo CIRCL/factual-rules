@@ -54,14 +54,14 @@ Virtual machine setup and configuration:
 - PC spec:
   -  i7-10850H CPU @ 2.70GHz
   - 32GB RAM
+~~~
 
-Time spent for the execution:
+Result of the execution:
 
 ~~~
 real	2m24.378s
 user	1m55.829s
 sys		0m9.271s
-~~~
 ~~~
 
 ## Overview of factual rules generator and the YARA rules are generated 
