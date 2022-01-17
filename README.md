@@ -9,7 +9,7 @@ rules can be automatically created with `factural-rules-generator` and contribut
 
 ## Rules directory format
 
-Each folder follow the same pattern:
+YARA rules are in [rules](./rules/) directory and each folder follow the same pattern per software name:
 
 - In the top folder level:
 
