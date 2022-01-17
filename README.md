@@ -1,6 +1,6 @@
 # factual-rules
 
-Facture rules are [YARA](https://yara.readthedocs.io/en/stable/) rules to find legitimate software on raw disk acquisition. The goal of the software is to be able to use a set of rules against collected or acquired digital forensic evidences and find installed software in a timely fashion. All the rules are generated using [factual-rules-generator](https://github.com/CIRCL/factual-rules-generator).
+Factual rules are [YARA](https://yara.readthedocs.io/en/stable/) rules to find legitimate software on raw disk acquisition. The goal of the software is to be able to use a set of rules against collected or acquired digital forensic evidences and find installed software in a timely fashion. All the rules are generated using [factual-rules-generator](https://github.com/CIRCL/factual-rules-generator).
 
 ## Source and origin of rules 
 
